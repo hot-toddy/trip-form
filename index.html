@@ -1,14 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Trip Survey</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<h1>Trip Survey Form</h1>
-<!-- We will add form elements here in the next steps -->
-<p>This is a placeholder for your form.</p>
-<script src="script.js"></script>
-</body>
-</html>
+<form id="tripForm">
+  <h1>Trip Survey Form</h1>
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+    <div><strong>Question / Trip Type</strong></div>
+    <div><strong>Trip 1</strong></div>
+    <div><strong>Trip 2</strong></div>
+    <div><strong>Trip 3</strong></div>
+
+    <!-- Work Location -->
+    <div>1) Work Location</div>
+    <div>
+      <select name="workLocation1">
+        <option>Berriedale</option>
+        <option>City</option>
+      </select>
+    </div>
+    <div>
+      <select name="workLocation2">
+        <option>Berriedale</option>
+        <option>City</option>
+      </select>
+    </div>
+    <div>
+      <select name="workLocation3">
+        <option>Berriedale</option>
+        <option>City</option>
+      </select>
+    </div>
+
+    <!-- Distance -->
+    <div>2) Distance (km one way)</div>
+    <div><input type="number" name="distance1" /></div>
+    <div><input type="number" name="distance2" /></div>
+    <div><input type="number" name="distance3" /></div>
+
+    <!-- Mode -->
+    <div>3) Mode</div>
+    <div><select name="mode1">...</select></div>
+    <div><select name="mode2">...</select></div>
+    <div><select name="mode3">...</select></div>
+
+    <!-- Shared Vehicle -->
+    <div>4) How many other people shared the vehicle?</div>
+    <div><select name="shared1">...</select></div>
+    <div><select name="shared2">...</select></div>
+    <div><select name="shared3">...</select></div>
+
+    <!-- Proportion of Trips -->
+    <div>5) Proportion of trips (%)</div>
+    <div><input type="number" name="proportion1" /></div>
+    <div><input type="number" name="proportion2" /></div>
+    <div><input type="number" name="proportion3" /></div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
