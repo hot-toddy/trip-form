@@ -2,17 +2,25 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Trip Survey Form</title>
+<title>Employee Commuting Survey</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<form id="tripForm" action="https://script.google.com/macros/s/AKfycbzB8Xz7sjWuN07p4gcsJttX-AFMEA1SfwluaJHqW49HXPuobHbUPDUM1EmQ4bcHdSl2Fw/exec" method="POST">
-  <h1>Trip Survey Form</h1>
+<form id="tripForm" action="https://script.google.com/macros/s/AKfycbwt11rJD68IwIJVazemrvNS7OFHLXajv6uyzt35K-5pewQhigZvkIp74R2TzTF2PC7Vtw/exec" method="POST">
+  <h1>Employee Commuting Survey</h1>
+
+    <!-- Total number of shifts -->
+  <div>
+    <label for="totalShifts">Total number of shifts for the recently finished financial year:</label>
+    <input type="number" id="totalShifts" name="totalShifts" required>
+  </div>
+
+  
   <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
     <div><strong>Question / Trip Type</strong></div>
-    <div><strong>Trip 1</strong></div>
-    <div><strong>Trip 2</strong></div>
-    <div><strong>Trip 3</strong></div>
+    <div><strong>Case 1</strong></div>
+    <div><strong>Case 2</strong></div>
+    <div><strong>Case 3</strong></div>
 
     <!-- Work Location -->
     <div>1) Work Location</div>
@@ -20,6 +28,7 @@
       <select name="workLocation1">
         <option>Berriedale</option>
         <option>City</option>
+        <option>Work from home</option>
       </select>
     </div>
     <div>
@@ -130,6 +139,15 @@ document.getElementById('tripForm').addEventListener('submit', function(event) {
     this.submit();
   }
 });
+  
+function checkWorkLocation(tripNumber) {
+  var workLocation = document.getElementById('workLocation' + tripNumber).value;
+  var disable = (workLocation === 'Work from home');
+
+  document.getElementById('distance' + tripNumber).disabled = disable;
+  document.getElementById('mode' + tripNumber).disabled = disable;
+  document.getElementById('shared' + tripNumber).disabled = disable;
+}
 </script>
 </body>
 </html>
