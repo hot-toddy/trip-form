@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Trip Survey Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 <form id="tripForm">
   <h1>Trip Survey Form</h1>
   <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
@@ -33,72 +41,71 @@
     <div><input type="number" name="distance2" /></div>
     <div><input type="number" name="distance3" /></div>
 
- <!-- Mode -->
-<div>3) Mode</div>
-<div>
-  <select name="mode1">
-    <option>Fossil car</option>
-    <option>Electric car</option>
-    <option>Uber/Taxi</option>
-    <option>E-Bike</option>
-    <option>Bus</option>
-    <option>Walk</option>
-    <option>Motorbike</option>
-    <option>Bicycle</option>
-  </select>
-</div>
-<div>
-  <select name="mode2">
-    <option>Fossil car</option>
-    <option>Electric car</option>
-    <option>Uber/Taxi</option>
-    <option>E-Bike</option>
-    <option>Bus</option>
-    <option>Walk</option>
-    <option>Motorbike</option>
-    <option>Bicycle</option>
-  </select>
-</div>
-<div>
-  <select name="mode3">
-    <option>Fossil car</option>
-    <option>Electric car</option>
-    <option>Uber/Taxi</option>
-    <option>E-Bike</option>
-    <option>Bus</option>
-    <option>Walk</option>
-    <option>Motorbike</option>
-    <option>Bicycle</option>
-  </select>
-</div>
+    <!-- Mode -->
+    <div>3) Mode</div>
+    <div>
+      <select name="mode1">
+        <option>Fossil car</option>
+        <option>Electric car</option>
+        <option>Uber/Taxi</option>
+        <option>E-Bike</option>
+        <option>Bus</option>
+        <option>Walk</option>
+        <option>Motorbike</option>
+        <option>Bicycle</option>
+      </select>
+    </div>
+    <div>
+      <select name="mode2">
+        <option>Fossil car</option>
+        <option>Electric car</option>
+        <option>Uber/Taxi</option>
+        <option>E-Bike</option>
+        <option>Bus</option>
+        <option>Walk</option>
+        <option>Motorbike</option>
+        <option>Bicycle</option>
+      </select>
+    </div>
+    <div>
+      <select name="mode3">
+        <option>Fossil car</option>
+        <option>Electric car</option>
+        <option>Uber/Taxi</option>
+        <option>E-Bike</option>
+        <option>Bus</option>
+        <option>Walk</option>
+        <option>Motorbike</option>
+        <option>Bicycle</option>
+      </select>
+    </div>
 
-<!-- Shared Vehicle -->
-<div>4) How many other people shared the vehicle?</div>
-<div>
-  <select name="shared1">
-    <option>0</option>
-    <option>1</option>
-    <option>2</option>
-    <option>3+</option>
-  </select>
-</div>
-<div>
-  <select name="shared2">
-    <option>0</option>
-    <option>1</option>
-    <option>2</option>
-    <option>3+</option>
-  </select>
-</div>
-<div>
-  <select name="shared3">
-    <option>0</option>
-    <option>1</option>
-    <option>2</option>
-    <option>3+</option>
-  </select>
-</div>
-
+    <!-- Shared Vehicle -->
+    <div>4) How many other people shared the vehicle?</div>
+    <div>
+      <select name="shared1">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3+</option>
+      </select>
+    </div>
+    <div>
+      <select name="shared2">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3+</option>
+      </select>
+    </div>
+    <div>
+      <select name="shared3">
+        <option>0</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3+</option>
+      </select>
+    </div>
 
     <!-- Proportion of Trips -->
     <div>5) Proportion of trips (%)</div>
@@ -108,3 +115,21 @@
   </div>
   <button type="submit">Submit</button>
 </form>
+
+<script>
+document.getElementById('tripForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const proportion1 = parseInt(document.getElementsByName('proportion1')[0].value) || 0;
+  const proportion2 = parseInt(document.getElementsByName('proportion2')[0].value) || 0;
+  const proportion3 = parseInt(document.getElementsByName('proportion3')[0].value) || 0;
+  const totalProportion = proportion1 + proportion2 + proportion3;
+
+  if (totalProportion > 100) {
+    alert('The total proportion of trips cannot exceed 100%. Please adjust your entries.');
+  } else {
+    this.submit();
+  }
+});
+</script>
+</body>
+</html>
